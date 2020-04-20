@@ -56,13 +56,13 @@ datasus_list = data_endpoints.model('SUS Data', {
     'update': fields.DateTime(required=False, description='Update Date')
 })
 
-predictcases_list = data_endpoints.model(('Predict Cases', {
+predictcases_list = data_endpoints.model('Predict Cases', {
     'id': fields.Integer(required=True, description='Id'),
     'state': fields.String(required=True, description='State'),
     'date': fields.Date(required=True, description='Date'),
     'predictcases': fields.Integer(required=True, description='Predict Cases'),
     'update': fields.DateTime(required=False, description='Update')
-}))
+})
 
 datasus_response_list = data_endpoints.model('SUS Data Response List', {
     'sus_list': fields.Nested(
@@ -188,6 +188,7 @@ class ListPredictCases(Resource):
             abort(404, "Predict cases not found")
 
         return response
+
 
 @data_endpoints.route('/state')
 class ListStateCases(Resource):

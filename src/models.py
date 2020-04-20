@@ -64,7 +64,7 @@ class PredictCases(db.Model):
     update = db.Column(db.DateTime)
 
     def save(self, session, **kwargs):
-        model = State(**kwargs)
+        model = PredictCases(**kwargs)
         session.add(model)
         return model
 
